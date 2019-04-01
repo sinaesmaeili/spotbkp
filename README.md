@@ -1,4 +1,4 @@
-# spotbkp (INCOMPLETE)
+# spotbkp
 
 ## Setup
 

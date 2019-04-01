@@ -1,5 +1,5 @@
 import json
-from src.util import SpotifyUtil
+from src.client import SpotifyUtil
 
 headers = {
     'Content-Type': 'application/x-www-form-urlencoded',
