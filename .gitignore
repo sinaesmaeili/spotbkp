@@ -1,4 +1,4 @@
 credentials.json
 __pycache__
 .vscode
-backup.json
+*backup*

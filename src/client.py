@@ -1,6 +1,7 @@
 import requests
 import webbrowser
 import json
+import datetime
 from urllib.parse import urlsplit, parse_qs
 from progress.bar import Bar
 
@@ -52,7 +53,13 @@ class SpotifyUtil:
         backup_template['songs'] = self.get_songs('https://api.spotify.com/v1/me/tracks?limit=50')
         backup_template['playlists'] = self.get_playlist_tracks(self.get_playlist_ids())
 
-        with open('backup.json', 'w') as new_file:
+        time_and_day = datetime.datetime.now()
+        # Converting time_and_day into a string, replacing empty character with an underscore
+        # and removing the millisecond from the time 
+        time_and_day = "{}".format(time_and_day).replace(" ", "_").split(".")[0]
+        backup_name = "spotify_backup_{}.json".format(time_and_day)
+
+        with open(backup_name, 'w') as new_file:
             json.dump(backup_template, new_file)
 
     # Retreives users 'favourite' songs list
